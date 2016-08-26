@@ -16,6 +16,8 @@ namespace FizzBuzz
 
         private static List<string> GenerateFizzBuzzValues(int startValue, int endingValue)
         {
+            ValidateInput(startValue, endingValue);
+
             List<string> fizzBuzzValues = new List<string>();
 
             for (int i = startValue; i <= endingValue; i++)
@@ -39,6 +41,14 @@ namespace FizzBuzz
             }
 
             return fizzBuzzValues;
+        }
+
+        private static void ValidateInput(int startValue, int endingValue)
+        {
+            if (startValue < 1) throw new ApplicationException("Start value can not be less than 1");
+            if (startValue >= endingValue) throw new ApplicationException("Start value must be less than ending value");
+            if (endingValue > 1000000) throw new ApplicationException("Ending value can not be greater than 1000000");
+            if (endingValue - startValue > 1000) throw new ApplicationException("Maximum number of outputs is 1000");
         }
     }
 }
