@@ -11,7 +11,7 @@ namespace FizzBuzz
 
         static void Main(string[] args)
         {
-            var fizzBuzzValues = GenerateFizzBuzzValues(0, 30);
+            var fizzBuzzValues = GenerateFizzBuzzValues(1, 30);
             foreach (var value in fizzBuzzValues)
             {
                 Console.WriteLine(value);
