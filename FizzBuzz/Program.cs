@@ -11,7 +11,7 @@ namespace FizzBuzz
 
         static void Main(string[] args)
         {
-            var fizzBuzzValues = GenerateFizzBuzzValues(1, 30);
+            var fizzBuzzValues = GenerateFizzBuzzValues(0, 30);
             foreach (var value in fizzBuzzValues)
             {
                 Console.WriteLine(value);
@@ -49,10 +49,10 @@ namespace FizzBuzz
 
         private static void ValidateInput(int startValue, int endingValue)
         {
-            if (startValue < MinimumValue) throw new ApplicationException("Start value can not be less than 1");
+            if (startValue < MinimumValue) throw new ApplicationException(string.Format("Start value can not be less than {0}", MinimumValue));
             if (startValue >= endingValue) throw new ApplicationException("Start value must be less than ending value");
-            if (endingValue > MaximumValue) throw new ApplicationException("Ending value can not be greater than 1000000");
-            if (endingValue - startValue > MaximumNumberOfOutputs) throw new ApplicationException("Maximum number of outputs is 1000");
+            if (endingValue > MaximumValue) throw new ApplicationException(string.Format("Ending value can not be greater than {0}", MaximumValue));
+            if (endingValue - startValue > MaximumNumberOfOutputs) throw new ApplicationException(string.Format("Maximum number of outputs is {0}", MaximumNumberOfOutputs));
         }
     }
 }
